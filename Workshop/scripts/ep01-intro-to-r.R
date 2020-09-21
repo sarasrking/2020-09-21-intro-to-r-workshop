@@ -232,6 +232,7 @@ str(glengths)
 str(species)
 
 lengths <- c(glengths, 90)        # adding at the end
+lengths
 lengths <- c(30, glengths)        # adding at the start
 lengths
 
@@ -246,7 +247,6 @@ sqrt_of_minus_one <- 1i
 true_or_false_value <- TRUE
 decimal_number = 54.0
 whole_number = -54L
-
 
 class(sqrt_of_minus_one)
 class(true_or_false_value)
@@ -271,9 +271,8 @@ class(decimal_number)
 # What will happen in each of these examples?
 #
 #   num_char <- c(1, 2, 3, "a")
-#   num_logical <- c(1, 2, 3, TRUE)
-#   char_logical <- c("a", "b", "c", TRUE)
-#   tricky <- c(1, 2, 3, "4")
+#   #   char_logical <- c("a", "b", "c", TRUE)
+# 
 #
 # [Hint: use class() to check the data type of your objects]
 #
@@ -286,7 +285,6 @@ class(decimal_number)
 # in the following example:
 #   
 #   num_logical <- c(1, 2, 3, TRUE)
-#   char_logical <- c("a", "b", "c", TRUE)
 #   combined_logical <- c(num_logical, char_logical)
 
 
@@ -327,6 +325,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 # returns TRUE?
 #
 # Answer:
+# because "four" and "fine" are characters and are compared alhabetically (four comes later than five in apha order)
 
 
 # Topic: Missing data (NA - Not Available)
@@ -337,9 +336,13 @@ max(heights)
 mean(heights, na.rm = TRUE)
 max(heights, na.rm = TRUE)
 
+is.na(heights)
+!is.na(heights)
 heights[!is.na(heights)]
 na.omit(heights)
 heights[complete.cases(heights)]
+
+
 
 #
 # Exercise (extended)
@@ -351,6 +354,11 @@ heights[complete.cases(heights)]
 #   heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 #
 # Solution
+median(na.omit(heights))
+
+OR
+
+median(heights, na.rm = TRUE)
 
 # Use the function median() to calculate the median of the heights vector.
 #
